@@ -274,7 +274,8 @@ return
 ------------------------------------------------------------------
 
 R13 = RAM[LCL-5]
-RAM[ARG] = RAM[SP]
+RAM[ARG] = RAM[SP-1]
+SP = ARG+1
 THAT = RAM[LCL-1]
 THIS = RAM[LCL-2]
 ARG = RAM[LCL-3]
