@@ -39,13 +39,13 @@ This course will use four main textbooks. None of them are required reading, but
 
 **What every computer scientist should know about floating-point arithmetic:** Found [here](https://dl.acm.org/doi/10.1145/103162.103163), provides useful but non-examinable information on floating point rounding errors.
 
-<!--## Week 3 reading
+## Week 3 reading
 
 **The Elements of Computing Systems:** Chapter 3 covers timing diagrams, the clock, registers, and memory in general. It takes D flip-flops as a black box (which it calls a DFF) rather than explaining how they work, but does a good job of explaining how they work and how to use them.
 
 **Digital Design and Computer Architecture:** Chapter 3.2.1 covers R-S latches, 3.2.2 covers D latches, 3.2.3 covers D flip-flops, and 3.2.4 covers registers (minus a load input which is covered in 3.2.5). Chapters 3.3 and 3.5 discuss issues around propagation delay, but in far more detail than this unit requires. Chapter 5.5 covers memory.
 
-## Week 4 reading
+<!--## Week 4 reading
 
 **The Elements of Computing Systems:** Chapter 3 covers the behaviour of the Hack program counter in particular.
 
