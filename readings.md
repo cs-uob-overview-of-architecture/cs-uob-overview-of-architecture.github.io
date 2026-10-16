@@ -51,7 +51,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 **Digital Design and Computer Architecture:** Chapter 1.6 covers digital abstraction and chapter 1.7 covers transistors, but both in far more detail than is required for this unit! Chapters 3.4.1 to 3.4.3 cover finite state machines, chapter 5.4.1 covers counters, and chapter 5.5 covers memory arrays include SRAM and DRAM.
 
-<!--## Week 5 reading
+## Week 5 reading
 
 **The Elements of Computing Systems:** Chapter 4 covers everything we've covered this week. You can skip 4.2.3 for now, which covers the Hack machine language (which we'll be discussing in week 7), but the rest of it is all worth reading if you're having trouble.
 
@@ -59,7 +59,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 **Just for fun:** In video 5-4 we talked briefly about how in the early 80s, programmers would sometimes use screen RAM as temporary storage. [Here](https://www.youtube.com/watch?v=5HSjJU562e8)'s a neat video from Retro Game Mechanics Explained (an outstanding channel) going in the other direction - an Atari 2600 game called Yar's revenge writes its own code to the screen RAM to produce a rapidly-changing graphical barrier, and RGME tries to use that to reverse engineer the game's code.
 
-## Week 7 reading
+<!--## Week 7 reading
 
 **The Elements of Computing Systems:** Chapter 4.2.3 contains the map between Hack assembly and machine code discussed in video 1. Chapter 5 focuses on implementing the CPU as discussed in video 2, and is a good first port of call if you'd like some help with the assignment. Be aware that Nisan and Schocken use their own HDL for this rather than Logisim. For the most part the details are the same, but you should skip 5.2.4 (which discusses the screen and keyboard).
 
