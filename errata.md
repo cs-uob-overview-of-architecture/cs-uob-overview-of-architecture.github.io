@@ -15,12 +15,6 @@ Table of contents
 
 Any errata will be linked from the video itself on the front page and fixed in the slides, so there's no need to keep checking back here.
 
-**<font color=FF7B72>No errata yet!</font>**
-
-<!--## Week 1 intro talk
-
-Slide 7 referred to the "Tuesday live sessions" - Tuesday should have read Monday, these are the normal workshops you have timetabled from 1pm-3pm.
-
 ## Week 5 video 4
 
 Part of the video shows a version of slide 3 with 15 bits stored under "Contents" rather than 16 bits.
@@ -35,7 +29,7 @@ Slide 4 makes the claim that in modern CPUs, usually CISC is better than RISC fo
 
 Slide 3 says we can set the clock speed to the propagation delay of the fastest stage; this should read the slowest stage.
 
-## Week 8 video 3
+<!--## Week 8 video 3
 
 In EBNF, the A - B syntax for anything that matches A but doesn't match B is only valid when B expands to a finite list of possible token sequences. So for example: &#10216;number&#10217; - &#10216;digit&#10217; would be valid because &#10216;digit&#10217; is one of ten possibilities, namely '0' through '9'; but &#10216;number&#10217; - &#10216;posNumber&#10217; would not be valid because &#10216;posNumber&#10217; could expand to infinitely many different strings.
 
