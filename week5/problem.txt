@@ -1,0 +1,62 @@
+A prime number is a positive whole number divisible by only itself and 1, not including 1. For example, the prime numbers less than 20 are 2, 3, 5, 7, 11, 13, 17 and 19. 
+
+RAM[0] contains a positive whole number n <= 1000. Your goal is to output a sorted list of all the prime numbers from 1 to n into memory, starting from RAM[50] and ending the output with a -1. For example, if RAM[0] = 19, then the desired output is:
+
+RAM[50] = 2
+RAM[51] = 3
+RAM[52] = 5
+RAM[53] = 7
+RAM[54] = 11
+RAM[55] = 13
+RAM[56] = 17
+RAM[57] = 19
+RAM[58] = -1
+
+A good algorithm for this is the sieve of Eratosthenes:
+
+P = Prime
+X = Not prime (i.e. 0, 1, or composite)
+
+      /-We are here
+      v
+0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 ...
+X  X
+
+      /-We are here
+      v
+0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 ...
+X  X  P     X     X     X     X     X     X     X     X     X
+
+         /-We are here
+         v
+0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 ...
+X  X  P  P  X     X     X  X  X     X     X  X  X     X     X  X
+
+            /-We are here
+            v
+0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 ...
+X  X  P  P  X     X     X  X  X     X     X  X  X     X     X  X
+
+Nothing to do here, since 4 is composite - anything divisible by 4 was divisible by 2.
+
+               /-We are here
+               v
+0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 ...
+X  X  P  P  X  P  X     X  X  X     X     X  X  X     X     X  X
+
+And so on, until we reach n.
+
+0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 ...
+X  X  P  P  X  P  X  P  X  X  X  P  X  P  X  X  X  P  X  P  X  X
+
+Then just scan this through and convert it to the list:
+
+2
+3
+5
+7
+11
+13
+17
+19
+...
