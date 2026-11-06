@@ -65,7 +65,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 **Digital Design and Computer Architecture:** Chapters 7.3-7.5 walk through the process of implementing a pipelined CPU for MIPS, and chapter 8.3 contains a detailed discussion of memory caching. These go far beyond what you'll need for the unit, but are an interesting read.
 
-<!--## Week 8 reading
+## Week 8 reading
 
 **The Elements of Computer Systems:** Chapter 6 covers the development of a Hack assembler, but from a much less formal perspective. The book does introduce lexing, parsing, and grammars, but it does so in chapter 10.1. This is written for the high-level language of nand2tetris, Jack, but Jack is similar enough to (a small subset of) C that you should find it understandable without too much trouble.
 
@@ -73,7 +73,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 **Introduction to Compilers and Language Design:** Chapters 3.1 and 3.2 cover the basics of lexing. Chapters 3.3 and onwards cover some nice lexing techniques for more complicated languages using finite state automata which are beyond the scope of the unit. Chapters 4.1 and 4.2 describe grammars, and the start of chapter 4.3 gives the formal meaning of an LL(1) grammar (which subtly differs from the informal definition given in the unit). The rest of chapter 4.3 formalises and expands on the hand-wavey LL parsing technique discussed in videos. The rest of chapter 4 describes other grammars and parsing techniques. Abstract syntax trees are introduced in chapter 5, but I'd recommend not reading this unless you're willing to spend extra time finishing chapter 4 - at the level required by this unit, you're better off with Nisan and Schocken.
 
-## Week 9 reading
+<!--## Week 9 reading
 
 **The Elements of Computing Systems:** This week's material closely follows chapter 7 (which covers stack operations and memory in the Hack VM) and chapter 8.2 (which covers labels and gotos). Beware that in their examples of VM code, they often use pseudocode instead of valid code, e.g. "push x" instead of "push local 0" - they do say what they're doing if you read the text, but if you're just skimming then this can catch you out.
 
