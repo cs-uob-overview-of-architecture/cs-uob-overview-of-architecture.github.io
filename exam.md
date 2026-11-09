@@ -81,3 +81,59 @@ The following material is **non-examinable**, despite appearing in lecture slide
 * The finite state machine used by Celeste linked in week 4 video 1 is non-examinable, and you are not expected to have looked at it.
 * BJT transistors from week 4 video 2 are non-examinable.
 * The rise/fall detector and traffic lights from the week 4 assignment are non-examinable, although the general skill of designing complex circuits is examinable.
+
+## Exam 2 details
+
+Exam 1 will consist of two sections with 50 marks each. 
+
+The first section, the short-answer section, will be a series of questions in exactly the same format as the Blackboard quizzes from live workshops. For example, some of them may be multiple choice, some may be true/false, and some may require you to write a single word or number. For all of them, your mark will be determined entirely by your final answer. If it's not clear what your final answer is, you will receive no credit for the question, so it's a good idea to underline or circle it if you have included any rough working. However, you should try to write any rough working on the question paper for this section, rather than in the answer booklet. 
+
+The second section, the long-answer section, will be closer in format to the weekly assignments. For example, you may be asked to write or debug assembly code, or to explain a complicated concept, or to translate Hack VM code into assembly code. A correct final answer will always receive full marks, but if your final answer is wrong then you'll get partial credit based on working and on your thought process. You will never be marked on neatness - as long as we can read your answer well enough to mark it, you'll get full credit for messy work. In questions that require you to write assembly, we don't expect you to write perfect code without a compiler, so we'll give generous partial credit.
+
+You will be given an answer booklet and a copy of [this reference sheet](../exam_files/reference2.pdf). Do not bring your own rough paper or reference sheet into the exam room. The reference sheet contains:
+
+* A table of Hack characters and their integer values.
+* A reference for the format of A-instructions, C-instructions, and most of Hack assembly.
+* A reference for the arithmetic and logical operations supported by Hack VM.
+* A reference for the standard memory map from Hack VM to Hack assembly.
+
+Results will be made available in January.
+
+## Exam 2 examinability
+
+By default, all material covered in lecture slides and in assignments is examinable, and all material covered only recommended reading is non-examinable. The specific problems solved in Monday workshops are not examinable, but the problem-solving techniques used are examinable (e.g. use of pseudocode). Material covered in e.g. both the lecture slides and the recommended reading is of course still examinable.
+
+Some material is non-examinable despite appearing in lecture slides or weekly assignments - this is usually flagged at the time. Here is a full list of what is **<u>not</u>** examinable:
+
+**General:**
+
+* You will not be examined on your ability to program in C or your knowledge of C syntax. However, you are expected to understand the basic concepts of programming taught in that unit (e.g. loops, functions, pointers etc.) insofar as this unit relies on it, and questions may use examples from C for illustrative purposes. For example, a question might refer to “an abstract data type (such as a struct in C)”.
+* Specific details of C’s behaviour not covered in Programming in C (like the difference between char *myArray = “Hello, world!”; and char myArray[] = “Hello, world!”; covered in week 11 video 3) are also non-examinable and are provided purely for illustrative purposes.
+* You will only be examined on weeks 1-4 insofar as weeks 5 and 7-11 rely on this content. For example, you will not be asked to convert a hexadecimal number into decimal as a question in its own right, but you may well be given a memory address in hexadecimal format and need to convert that address into decimal format as part of answering a larger question in the practical part of the exam.
+* You will not be asked to design any circuits or to use Logisim in the practical part of the exam.
+* The specific solutions for weekly assignments from weeks 5, 7, 8 and 11 are non-examinable except insofar as they overlap with lectures. For example, you will be expected to know how to write a program like checkerfill.asm from the week 5 assignment, but you will not be expected to have memorised checkerfill.asm and you won’t be asked to reproduce it.
+* The C code for weekly assignments from weeks 9 and 10 is non-examinable, but you will be expected to know how to translate Hack VM code into Hack assembly code and may be asked to do so (as in the practice papers).
+* Any specific details of non-Hack assembly languages are non-examinable. For example, you will be expected to understand the difference between direct and indirect addressing from week 7 video 3, but you will not be expected to remember the ARM syntax for either. General properties of non-Hack assembly languages (such as that ARM is used in most modern mobile devices) remain examinable.
+
+**Week 5:**
+
+* The definition of a Turing machine in video 3 is non-examinable. The other contents of the slide (the Church-Turing thesis, Turing-completeness, and the Halting Problem) are examinable, though only at the level covered by the slide.
+
+**Week 7:**
+
+* Exact details of specific CPUs mentioned in videos 3-4, such as the number of cycles required per instruction or the time in nanoseconds to retrieve data from memory. (However, you are expected to remember the key qualitative details that are common across all CPUs, such as L3 cache access being slower than L1 cache access.)
+
+**Week 8:**
+
+* The Hack assembly grammar is examinable, but you don’t need to memorise the definition – if questions are asked about it, you will be given the relevant excerpts of the EBNF. The same is true for the grammars covered in video 3.
+* The last slide of video 2 (on using multiple symbol tables to handle scopes in a high-level language) is only examinable insofar as it overlaps with the week 11 material.
+
+**Week 9:**
+
+* The Hack VM grammar is examinable, but you don’t need to memorise the definition – if questions are asked about it, you will be given the relevant excerpts of the EBNF.
+
+**Week 11:**
+
+* Week 11 is an illustration of the general principles of how to compile a high-level language into a lower-level one and moves much faster than the rest of the unit. As such, it is mostly non-examinable with the following exceptions.
+* The process of parsing Jack is non-examinable, but given a CST, questions may be asked about compiling the most basic building blocks of a high-level language into Hack assembly via Hack VM: expressions, variables, if-else statements, while loops and functions. Classes, methods, and string literals are all non-examinable.
+* Questions may be asked based on the Jack grammar (e.g. "which of these is a valid AST for the following \<expression\>?"). In this case, the relevant excerpt from the grammar will be provided; thus these are really questions about the material covered in week 8.
