@@ -33,11 +33,11 @@ Slide 3 says we can set the clock speed to the propagation delay of the fastest 
 
 In EBNF, the A - B syntax for anything that matches A but doesn't match B is only valid when B expands to a finite list of possible token sequences. So for example: &#10216;number&#10217; - &#10216;digit&#10217; would be valid because &#10216;digit&#10217; is one of ten possibilities, namely '0' through '9'; but &#10216;number&#10217; - &#10216;posNumber&#10217; would not be valid because &#10216;posNumber&#10217; could expand to infinitely many different strings.
 
-<!--## Week 9 video 4
+## Week 9 video 4
 
 Slide 8 says that "temp is allocated a fixed segment of length 8 and base address 5 = TEMP" - this is all true except that TEMP is not a valid keyword in Hack assembly.
 
-## Week 10 video 3
+<!--## Week 10 video 3
 
 The last bullet point of slide 6 starts "Jump to the return value" - this should read "Jump to the return address".
 
