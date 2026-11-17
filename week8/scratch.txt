@@ -1,67 +1,121 @@
-WARM-UP
+Want to compile statements of the form
 
-Goal: Starting with the RAM address stored in RAM[0], set the next RAM[1] words of RAM to -1. For example, if RAM[0] = 1000 and RAM[1] = 3, then RAM[1000], RAM[1001] and RAM[1002] should all be set to -1.
+let x = 4 + 5
+let y = x - 5 + 7
+let z = x
 
-Pseudocode:
+into Hack assembly, writing the compiler in an actual language (really pseudocode).
 
-int pos = RAM[0];
-int j = RAM[1];
-while(j > 0) {
-	RAM[pos] = -1
-	j--;
-	pos++;
+What are the tokens?
+
+Keyword: let
+Identifiers: x, y etc.
+Symbols: + and - and =
+Integer literals: e.g. 4 and 5 and 7
+Newlines
+
+Given the tokens, the lexer is easy to write - breaking the strings into tokens.
+Next step: Given a sequence of tokens, we want to parse it according to some grammar. What's the grammar?
+
+Call a line we're trying to expand a <letStatement>. Then:
+
+<letStatement> ::= "let", identifier, "=", <expression>, newline
+<expression> ::= <term> | <term>, <operator>, <expression>
+<operator> ::= "+" | "-"
+<term> ::= identifier | integer literal
+
+Let's assume we're doing the code generation after the parsing, so we already have a CST. What would that code look like?
+
+void compileLetStatement(treeNode letStatement) {
+	// Produces Hack ASM code that assigns the result of the <expression> to the identifier in the <letStatement>.
+	compileExpression(<expression> node of the <letStatement>, identifier of the <letStatement>);
 }
 
-QUESTION 2 APPROACH
-
-Goal: Draw a right-angled triangle from the top-left corner of the screen to the bottom-middle of the screen.
-
-First work out what needs to be written to what parts of memory.
-
-Top-left pixel:
-Write 1 to RAM[SCREEN] = RAM[0x4000]
-First 16 rows we want to write:
-
-RAM[0x4000] = 0b1
-RAM[0x4020] = 0b11
-RAM[0x4040] = 0b111
-...
-RAM[0x41E0] = 0b1111 1111 1111 1111
-
-Then this pattern repeats in the next row, shifted to the right.
-
-So e.g. RAM[0x41E0] = 0b1111 1111 1111 1111, RAM[0x41E1] = 0b1.
-
-// Address of the start of the row we're currently writing to
-int rowstart = 0x4000;
-// Number of all-black words at the start of the row we're currently writing to
-int rowlength = 0;
-// Value to write at the end of the current row
-int diagonal = 1;
-while(rowstart < 0x6000) {
-	// Address of the 16x1 pixel block we're currently writing to
-	pos = rowstart;
-	while(pos < rowstart + rowlength) {
-		RAM[pos] = 0xffff;
-		pos += 1;
+void compileExpression(treeNode expression, identifier destination) {
+	// Produces Hack ASM code that assigns the result of the <expression> to the identifier "destination".
+	// Overwrites the values stored in R13 and R14.
+	if (expression is a <term>) {
+		compileTerm(the <term> node, destination);
+		return;
 	}
-	RAM[rowstart + rowlength] = diagonal;
-	rowstart += 0x20;
-	If (diagonal == 0xffff) {
-		rowlength += 1;
-		diagonal = 1;
-	} else {
-		diagonal = 2*diagonal + 1;
+	
+	// Otherwise, it's <term> <operator> <expression>
+	compileExpression(second term, R14);
+	compileTerm(first term, R13);
+	switch(<operator> node of expression) {
+		case "+": Output ASM code:
+			@R13
+			D=M
+			@R14
+			D=M+D
+			@destination
+			M=D
+		case "-": Output ASM code: 
+			@R13
+			D=M
+			@R14
+			D=M-D
+			@destination
+			M=D
+	}
+	return;
+}
+
+void compileTerm(treeNode term, identifier destination) {
+	// Produces Hack ASM code that assigns the value of the <term> to the identifier "destination"
+	// Does not touch memory (but does change the values of A, M D).
+	if (term is literal) {
+		Output ASM code:
+			@term
+			D=A
+			@destination
+			M=D
+	} else { // term is identifier
+		Output ASM code:
+			@term
+			D=M
+			@destination
+			M=D
 	}
 }
-Halt.
 
+If we applied compileExpression to e.g. compileExpression(1+2+3, x). Then we would:
+- Load 1 into R13
+- Call compileExpression(2+3, R14)
+	- Load 2 into R13
+	- Call compileExpression(3, R14)
+		- Load 3 into R14
+	- Load R13+R14=2+3=5 into R14
+- Load R13+R14 =? 1+5 into R14...
 
-In binary, shifting the whole number left by one place is the same as multiplying it by 2:
+We overwrote R13! Disaster! We actually load 2+5 = 7 into R14.
 
-16 8 4 2 1
-   1 0 1 1 = 8*1  + 4*0 + 2*1 + 1*1
-1  0 1 1 0 = 16*1 + 8*0 + 4*1 + 2*1 = 0b1011*2
+But with the call order reversed:
 
+- Call compileExpression(2+3, R14)
+	- Call compileExpression(3, R14)
+		- Loads 3 into R14
+	- Loads 2 into R13, 5 into R14
+- Load 1 into R13, 6 into R14.
 
-So what this means is that adding a 1 to the end is the same as multiplying by 2 and adding 1.
+---------------------------------------------------------------------------
+
+What about if we wanted to try more complex expressions? E.g. * and /.
+
+Problem: How do we parse 3 + 4 * 5? So at the very least we will also want ()s, and we'll also want that by default,
+
+	3 + 4 * 5 is read as 3 + (4 * 5) rather than (3 + 4) * 5.
+
+Approaches for operator precedence:
+	- Shunting yard algorithm - simple, but requires nasty special case in the compiler, and iterative. 
+	- Pratt parser - keeps nice recursive structure, but requires special case in the compiler, and is harder.
+	- Absolutely easiest: Build everything into the grammar to FORCE the parse tree into the right shape.
+	
+The CST/parse tree encodes the order of evaluation when we apply the algorithm above. Nodes at the bottom of the parse tree are evaluated before nodes at the top. We want to force ourselves to evaluate e.g. 4*5 before 3+4, so we want 4*5 to be at the bottom of the parse tree. Likewise, we want ()s to be at the VERY bottom of parse tree. We can do this with e.g.:
+
+<letStatement> ::= "let", identifier, "=", <plusMinusExpression>, newline
+<plusMinusExpression> ::= <timesDivideExpression> | <plusMinusExpression>, (+ | -), <plusMinusExpression>
+<timesDivideExpression> ::= <term> | <timesDivideExpression>, (* | /), <timesDivideExpression>
+<term> ::= identifier | integer literal | "(", <expression>, ")"
+
+E.g. let x = 3 + 4 * 5 is now forced to compile as x = 3 + (4 * 5), with the 4*5 as the lower node of the parse tree.

@@ -29,6 +29,8 @@ Slide 4 makes the claim that in modern CPUs, usually CISC is better than RISC fo
 
 Slide 3 says we can set the clock speed to the propagation delay of the fastest stage; this should read the slowest stage.
 
+The left-hand C loop in slide 10 (broke_array_copy) has an off-by-one error; the condition in the for loop should be i&lt;count rather than i&lt;=count.
+
 ## Week 8 video 3
 
 In EBNF, the A - B syntax for anything that matches A but doesn't match B is only valid when B expands to a finite list of possible token sequences. So for example: &#10216;number&#10217; - &#10216;digit&#10217; would be valid because &#10216;digit&#10217; is one of ten possibilities, namely '0' through '9'; but &#10216;number&#10217; - &#10216;posNumber&#10217; would not be valid because &#10216;posNumber&#10217; could expand to infinitely many different strings.
