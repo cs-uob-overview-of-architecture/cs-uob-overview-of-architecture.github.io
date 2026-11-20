@@ -39,10 +39,10 @@ In EBNF, the A - B syntax for anything that matches A but doesn't match B is onl
 
 Slide 8 says that "temp is allocated a fixed segment of length 8 and base address 5 = TEMP" - this is all true except that TEMP is not a valid keyword in Hack assembly.
 
-<!--## Week 10 video 3
+## Week 10 video 3
 
 The last bullet point of slide 6 starts "Jump to the return value" - this should read "Jump to the return address".
 
-## Week 11 video 1
+<!--## Week 11 video 1
 
 The summary example on slide 14 has been corrected and adjusted - the method now uses the correct syntax as set out on slide 12, and I added a line with a free/Memory.deAlloc to give an example use of "this". Also changed the foo declaration code on the left both on slide 14 and slide 13 - the point is that objects in Jack are stored as pointers to that object's memory, so the corresponding C code should define a pointer as well.-->

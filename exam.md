@@ -28,7 +28,7 @@ Both exams will run according to the University’s [exam regulations](https://w
 * You will need to bring your UCard, and it will need to be visible on your desk at all times during the exam.
 * You will be required to leave all bags and coats at the back of the room so please leave valuables at home wherever possible and also ensure that you are appropriately dressed for the venue and weather. (MVB 2.11 has quite strong air conditioning, so T-shirts are a bad idea!)
 * Drinks bottles are allowed provided they contain water only and have no labels or writing on them. Food is not allowed unless you have a medical need, in which case you should make an invigilator aware.
-* Calculators are not allowed, but you will be given a reference sheet that includes calculated powers of 2.
+* Calculators are not allowed for the first exam, but you will be given a reference sheet that includes calculated powers of 2. Non-programmable calculators **are** allowed for the second exam.
 * Mobile phones, smart watches, computers, or any other electronic devices are not allowed at your desk. Mobile phones should be turned off.
 * All exams should be submitted in English.
 
@@ -97,7 +97,7 @@ You will be given an answer booklet and a copy of [this reference sheet](../exam
 * A reference for the arithmetic and logical operations supported by Hack VM.
 * A reference for the standard memory map from Hack VM to Hack assembly.
 
-Results will be made available in January.
+Results will be made available in January. There is a practice paper available [here](../exam_files/exam-practice-questions.pdf) with answers available [here](../exam_files/exam-practice-answers.pdf).
 
 ## Exam 2 examinability
 

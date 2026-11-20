@@ -79,7 +79,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 **Introduction to Compilers and Language Design:** Chapter 8 talks about intermediate representations in much more detail than is needed for the unit, covering stack machine IRs (like Hack VM or the JVM) in 8.7. It briefly discusses GIMPLE, LLVM, and the JVM in 8.8.
 
-<!--## Week 10 reading
+## Week 10 reading
 
 **The Elements of Computing Systems:** Videos 1-3 of this week's material closely follow chapter 8.3 and onwards, which covers function calls in general and function calls in Hack VM in particular. Chapter 12.1.3 discusses memory allocation on the heap from video 4 - specifically the first two algorithms we discuss.
 
@@ -89,7 +89,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 [This](https://gee.cs.oswego.edu/dl/html/malloc.html) is an article on how malloc and free were implemented in C as of the mid-90s. While current versions are more complicated, it's an interesting point of comparison to video 4.
 
-## Week 11 reading
+<!--## Week 11 reading
 
 **The Elements of Computing Systems:** This should be your go-to book for the week!
 
