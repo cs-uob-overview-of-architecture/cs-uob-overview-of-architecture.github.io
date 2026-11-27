@@ -89,7 +89,7 @@ This course will use four main textbooks. None of them are required reading, but
 
 [This](https://gee.cs.oswego.edu/dl/html/malloc.html) is an article on how malloc and free were implemented in C as of the mid-90s. While current versions are more complicated, it's an interesting point of comparison to video 4.
 
-<!--## Week 11 reading
+## Week 11 reading
 
 **The Elements of Computing Systems:** This should be your go-to book for the week!
 
@@ -98,4 +98,4 @@ This course will use four main textbooks. None of them are required reading, but
 * Chapter 11 is a detailed guide to compiling Jack post-parsing.
 * Appendix 5 contains the map between char and int variables (which you don't actually need for compiling), and Appendix 6 contains the list of standard library/"operating system" functions.
 
-**Introduction to Compilers and Language Design:** The parser we use is a recursive descent parser - these are discussed in chapter 4.3.4 from the point of view of LL(1) languages, and the idea for an LL(2) language is essentially the same (but with the extra lookahead token). If you're interested in type systems and type checking, chapter 7 gives a good introduction while avoiding the more hardcore type theory. Chapter 11 discusses generating code from the parse tree and symbol tables, and chapter 12 discusses optimisation.-->
+**Introduction to Compilers and Language Design:** The parser we use is a recursive descent parser - these are discussed in chapter 4.3.4 from the point of view of LL(1) languages, and the idea for an LL(2) language is essentially the same (but with the extra lookahead token). If you're interested in type systems and type checking, chapter 7 gives a good introduction while avoiding the more hardcore type theory. Chapter 11 discusses generating code from the parse tree and symbol tables, and chapter 12 discusses optimisation.
